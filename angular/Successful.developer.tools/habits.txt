@@ -1,0 +1,14 @@
+What makes for a successful developer
+---------------------------------------
+
+1 - Make a plan BEFORE they start coding
+
+2 - Write it down
+    put your notes in an online site/github
+    add to it - constantly
+
+3 - Keep Learning
+
+4 - Use a debugger
+
+4.5 - Code should work and the code should work ON TIME

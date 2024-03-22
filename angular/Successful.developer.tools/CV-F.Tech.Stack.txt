@@ -1,0 +1,25 @@
+CVF Tech Stack
+------------------------------
+
+FRONT END
+----------
+HTML
+CSS
+Typescript
+Tailwind
+Angular 16
+Angular Material
+High Charts
+AG-Grid
+NPM - bring in frontend javascript libraries
+
+BACKEND
+-----------
+Java 17
+Maven - bring in backend Java libraries
+Spring-Boot
+Spring-Security
+Spring-JDBC
+Hikari Connection Pool
+Elastic Search
+Sync-Services
