@@ -1,2 +1,21 @@
 How to make a page
 ------------------
+** for Angular projects within the CV-F environment
+
+Generate the component within the Terminal window
+    terminal> cd to the directory you want
+    terminal> ng generate component componentName
+
+Add the route to the constants.ts file
+    -- MY_COMPONENT_NAME_ROUTE = 'page/my-route'
+register the route in the app.module.ts file
+    Add this line, adjusted appropriately for the component being added
+        -- { path: Constants.MY_SETTINGS_ROUTE:     component:  MySettingsComponent,        canActivate: [PageGuard.canActivate ]},
+
+Add the route to the database table:  ui_controls        (if using real security)
+*adjust the values and endpoint for the component
+		1) Edit V1.1__security.sql
+
+			insert into uicontrols(id, name) values( 4000, 'page/my-settings' );
+
+		2) Nuke your database
