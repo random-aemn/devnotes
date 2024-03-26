@@ -1,0 +1,61 @@
+Front End Terminology
+------------------
+
+"Generate a DTO"
+	- go to the terminal and run the ng generate class command
+	- DTO = Data Transfer Object
+	- a DTO is an "envelope"/packaging - it holds things
+	- We rarely (very rarely) put methods in it
+	
+			export class MyDTO{
+				public description: 	string;
+				public ic:				number;
+				public myListOfStuff: 	MyStuff[]
+			}
+			
+
+"Component" (Angular Component)
+	- buliding block of a web page / lego piece
+	- it is different from a service in that a component has HTML and CSS (Service does not)
+	- it is different from a service in that a component has a route(Service does not)
+	- it is different from a service in that a component has a SELECTOR
+	- it is different from a service in that a component DIES when you leave the page 
+	- it is different from a service in that a component is CREATED every time you enter a page
+	
+
+"Service" (Angular Service)
+	- it's a class
+	- it does not have HTML or CSS
+	- Service sticks around 
+	- It's how we reuse code in Angular Web Apps (that don't have look and feel)
+	- Services are injected
+	
+	-Angular provides services that we can use -- the router, the formbuilder
+	
+		constructor(private myService: MyService,
+					private router: Router,
+					private formBuilder: FormBuilder ){
+					
+					}
+	
+	
+	
+"Class Variable"
+	- It's not a local variable
+	- it can be used by any method inside the class
+	
+		public/private/protected variableName: variableType
+			public myForm: FormGroup;
+			
+"Local Variable"
+	- we declare a local variable
+		let myData: string = "hi mom";
+		
+"Passed-in Variable"
+	- passed in argument to a method
+	
+		public getAllAlerts(aCaseId: number): AlertDTO[] {
+			let myInfo: number =27;
+		}
+		
+****PASSED-IN VARIABLES ARE PRECEDED BY "a"  //an Adam Resnick-ism -- lowercase a stands for "argument" 

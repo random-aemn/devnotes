@@ -1,0 +1,61 @@
+TypeScript Exercises
+--------------------
+Components, services, variables, and methods
+
+
+Exercises
+---------
+ 1. Create a new page component called MyPage1
+	a. Generate the component
+    b. Add the route to constants.ts:         the route will be this:   page/my-page-1
+    c. Register the route
+    d. Add the route to the database
+    e. Add a link to the navbar (using that route)
+    f. Verify that you can see it in the navbar
+
+
+	+------------------------------------------------+
+	| My Page 1                                 Help | 
+    +------------------------------------------------+
+    |                                                |
+    |                                                |
+    |   <button go to page 2>                        |
+    |                                                |
+    |   <hyperlink go to page 2>                     |
+    +------------------------------------------------+
+
+
+
+ 2. Create a new page component called MyPage2
+	a. Generate the component
+    b. Add the route to constants.ts:         the route will be this:   page/my-page-2
+    c. Register the route
+    d. Add the route to the database
+    e. Add a link to the navbar (using that route)
+    f. Verify that you can see it in the navbar
+
+
+
+	+------------------------------------------------+
+	| My Page 2                                 Help | 
+    +------------------------------------------------+
+    |                                                |
+    |                                                |
+    |   <button go to page 1>                        |
+    |                                                |
+    |   <hyperlink go to page 1>                     |
+    +------------------------------------------------+
+
+
+
+
+ 3. Implement the buttons so that they take you to page 1 and page 2
+
+		
+ 
+-----------------------------------------------------------
+
+
+ 
+
+
