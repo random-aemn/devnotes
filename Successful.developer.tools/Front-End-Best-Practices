@@ -1,0 +1,18 @@
+Checkout a new branch
+    -- git checkout -b cc/branchName
+
+Generate component
+    --create two div tags that indicate the top of the page and the rest of the page
+
+        <div>
+            top of page
+        </div>
+
+        <div>
+            rest of page
+        </div>
+
+    -- in CSS file turn on the border so you can see borders/edges change as you develop
+        -- div {
+                border: 1px dashed black;
+                }
