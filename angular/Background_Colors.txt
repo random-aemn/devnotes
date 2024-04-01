@@ -1,0 +1,42 @@
+
+	How to set background colors with tailwind
+	------------------------------------------
+
+		<div class="bg-[#RRGGBB]">
+			
+				This is a section of my page
+
+		</div>
+
+
+
+		<div class="bg-[#efefef]">
+				<!-- Light Grey Background is applied to this entire div -->
+				This is a section of my page
+
+		</div>
+
+
+
+
+		<div class="bg-backDrop">
+				<!-- backDropColor (from the tailwind.config.js) is applied to this entire div -->
+				This is a section of my page
+
+		</div>
+
+
+
+		<div class="bg-primary">
+				<!-- primary (from the tailwind.config.js) is applied to this entire div -->
+				This is a section of my page
+		</div>
+
+
+
+
+		<div class="bg-blue-500">
+				<!-- Use the blue 500 -->
+				This is a section of my page
+		</div>
+

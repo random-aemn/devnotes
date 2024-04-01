@@ -18,4 +18,6 @@ Add the route to the database table:  ui_controls        (if using real security
 
 			insert into uicontrols(id, name) values( 4000, 'page/my-settings' );
 
+	    1.5) add link to the navbar
+
 		2) Nuke your database
