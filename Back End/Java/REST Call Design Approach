@@ -1,0 +1,49 @@
+ 1. Figure out the contract     ** See article on that if required
+
+ 2. Make your database changes  (if needed)
+    a. Try out your database changes in a "Query Console" (in IntelliJ)
+    b. Copy your database changes to a flyway SQL script
+    c. Apply your database changes using mvn flyway or by nuking the database
+
+
+ 3. Create any DTOs on the backend you need
+    NOTE:  There may be DTOs passed-in, returned, or both
+    NOTE:  DTOs operate as the envelope for passing information - they are a model class that will hold values in variables
+
+
+ 4. Create a new java class:  ReportService
+	a. Add the special spring annotation        @Service
+	b. Add a logger
+	    - We use LoggerFactory
+	    // Logger logger = new LoggerFactory.getLogger(MyServiceClass.class);
+
+	c. Add a public method that will add the report to the system
+	   NOTE:  Leave it empty for now
+
+
+ 5. Create a new java controller:  ReportController
+	a. Add the special spring annotation		@Controller
+	b. Add a logger
+	c. Add a public method that will be our REST endpoint
+
+
+ 6. Verify the REST call **OUTLINE** works   (At this point, the REST call doesn't do anything)
+	a. Activate your backend debugger
+	b. Use Postman to hit it
+
+
+ 7. Fill-in the Service method
+	a. Figure out what SQL you need using your "Query Console"               H A R D E S T      P A R T !!!
+			Are you inserting records to the database?  If so, use the AuditManager
+			Are you updating  records in the database?  if so, use the AuditManager
+         	Are you deleting  records in the database?  If so, use the AuditManager
+			Are you selecting records?                  If so, use JdbcTemplate or NamedJdbcTemplate
+
+
+    b. Copy the SQL to a string variable
+    c. Use Spring-JDBC to run your SQL code
+
+
+ 8. Verify the REST call works
+	a. Activate your backend debugger
+	b. Use Postman to hit it

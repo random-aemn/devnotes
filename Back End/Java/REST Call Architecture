@@ -1,0 +1,9 @@
+General Approach to All REST Calls
+----------------------------------
+
+
+                                   Passed-in DTO
+			Frontend / Postman ------------------->   Java Controller ---------> Java Service -----------> Executing SQL to talk to the database -----------> Postgres Database
+                                                                                                           Invoking a REST call to the search engine -------> ElasticSearch
+
+

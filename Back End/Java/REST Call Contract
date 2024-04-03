@@ -1,0 +1,27 @@
+ Figure out a contract by answering these questions
+
+		REST Call Contract
+		------------------
+		a) What is the URL?
+
+ 		b) URL Type:       			GET/POST/PUT/DELETE
+											GET  	 	we use for read-only operations
+											PUT 		we use for write operations that pass-in only 1 or zero things
+											POST        we use for write operations that pass-in many things or a DTO
+											DELETE		we use for delete operations
+
+
+
+		c) What is passed-in?
+
+		d) What is returned?
+
+		e) What security roles are allowed to use this REST call?		CVF_SUPERVISOR?  CVF_SPECIALIST?  CVF_ADMIN?  CVF_REVIEWER?   All 4 of them?
+
+		f) What checks on the passed-in info?
+
+        g) What does this REST call actually do?
+			-- Are you inserting a new record into a table?
+			-- Are you sending an email?
+			-- Are you running a search against ElasticSearch?
+
