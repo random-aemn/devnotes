@@ -1,0 +1,76 @@
+
+	REST Call Contract
+	------------------
+	a) What is the URL?	        /api/documents/add
+
+	b) URL Type:       			POST
+
+	c) What is passed-in? 		DTO that holds this informatoin:
+									document name
+									document type id  (must be 10, 20, or 30)
+									description
+
+	d) What is returned?  		Nothing
+
+	e) What security roles are allowed to use this REST call?  All of them
+
+	f) What checks on the passed-in info?
+		-- Document name cannot be blank
+		-- Document type id cannot be null
+		-- Description cannot be blank
+
+	g) What does this REST call actually do?
+		-- Run some SQL to add a record to the database
+
+
+
+	 Plan
+	 ----
+	 1. Create a fresh branch from development
+		a. Checkout the latest development branch
+			terminal> git checkout stuff
+			terminal> git branch -D development
+			terminal> git fetch -a
+			terminal> git checkout development
+
+		b. Create a new branch from there
+		        -- Branch name should always start with your initials so everyone can tell whose branch it is
+			terminal> git checkout -b cc/MY_BRANCH_NAME
+
+
+
+	 2. Create a new table called: my_documents
+		 a. Create the table:   my_documents
+			-- Add an ID column
+			-- Add columns for the other fields
+
+		b. Create the audit table
+
+
+
+
+	 3. Create an OUTLINE for the REST call
+
+		a. Create a DTO:  AddMyDocumentDTO
+			-- Add the private class variables to it
+			-- Set the @JsonProperty fields
+			-- Generate the getters & setters
+
+		b. Create a service:  MyDocumentService
+			-- Add the special annotation
+			-- Add the logger
+			-- Add a public method that does the work
+
+		c. Create a controller MyDocumentController
+			-- Add the special annotation
+			-- Add the logger
+			-- Add a public method that is where the REST endpoints STARTS in the backend
+
+
+	4. Verify that stuff is passed-in using Postman
+
+	5. Fill-in the service method
+
+	6. Add the checks (on passed-in data)
+
+

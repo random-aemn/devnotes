@@ -1,0 +1,16 @@
+ How to Create an Audit Table
+ ----------------------------
+   1. Table name:   <original tablename>  _aud
+
+   2. Add all of the columns from the original table to your audit table
+	  NOTE:  Every column is optional
+
+   3. Add the 4 special columns
+      NOTE:  The 4 special columns are all REQUIRED
+
+		timestamp            timestamp     not null,
+		username             varchar(100)  not null,
+		audit_type           integer       not null,
+		transaction_id       integer       not null
+
+

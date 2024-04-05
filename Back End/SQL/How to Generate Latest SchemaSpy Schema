@@ -1,0 +1,30 @@
+How to Generate the Schema of the LATEST development branch
+-----------------------------------------------------------
+
+ 1. Turn on your VPN client
+
+ 2. Get the latest development branch
+    terminal> cd projects\cvf
+    terminal> git checkout stuff
+    terminal> git branch -D development
+    terminal> git fetch -a
+    terminal> git checkout -f development
+
+ 3. Use Intellij to Nuke the database  (Erase & Restore the database)
+    *OR*
+    terminal> cd db-migraitons
+    terminal> mvn flyway:clean
+    terminal> mvn flyway:migrate
+
+
+ 4. Run the generate schemaspy script
+    a. Go to c:\tools\schemaspy
+    b. Double-click on your generateSchema.bat script
+
+ 5. Open the schema spy info
+    a. Go to c:\tools\schemaspy\cvf
+    b. Double-click on index.html
+
+
+
+

@@ -1,0 +1,132 @@
+Thoughts on Passed-in DTOs
+--------------------------
+
+Problem:  	Should my DTO use
+				private Integer documentTypeId;			// For Strings and Integers, when in doubt use the objects
+				private int     documentTypeId;
+
+			Should my DTO use:
+				private boolean isFoundInSystem;        // When in doubt use this
+				private Boolean isFoundInSystem;
+
+
+Answer:
+  Depends on if the field is optional or not
+  If the field is optional, always use an OBJECT
+  If the field is boolean, you probably want primitive boolean
+
+
+
+
+
+	Case 1:  User passes-in a number using a primitive documentTypeId in the DTO
+	----------------------------------------------------------------------------
+
+		User passes-in this
+		{
+			"documentTypeId" : 10
+		}
+
+		In the DTO, the primitive int holds 10
+
+
+
+
+
+	Case 2:  User passes-in NOTHING using a primitive documentTypeId in the DTO
+	----------------------------------------------------------------------------
+
+		User passes-in this
+		{
+
+		}
+
+		In the DTO, the primitive int holds zero
+
+			private int documentTypeId;
+
+
+
+
+
+	Case 3:  User passes-in NOTHING using a primitive documentTypeId in the DTO
+	----------------------------------------------------------------------------
+
+		User passes-in this
+		{
+			"documentTypeId" : 0
+		}
+
+		In the DTO, the primitive int holds zero
+
+			private int documentTypeId;
+
+
+
+	General Rules for Building your DTOs
+	------------------------------------
+	When in doubt, when making the DTO, use Objects    -- e.g., Integer, String
+	EXCEPTION:     when using booleans, use primitives -- e.g., boolean
+
+
+			Boolean isFoundInSystem = null / true / false
+
+			boolean isFoundInSystem = true / false
+
+
+
+
+	Case 4:  User passes-in a number using an INTEGER OBJECT documentTypeId in the DTO
+	----------------------------------------------------------------------------------
+
+		User passes-in this
+		{
+			"documentTypeId" : 10
+		}
+
+		In the DTO, the integer Object holds 10
+
+
+
+
+
+	Case 5:  User passes-in NOTHING using an INTEGER OBJECT documentTypeId in the DTO
+	----------------------------------------------------------------------------
+
+		User passes-in this
+		{
+
+		}
+
+		In the DTO, the INTEGER OBJECT holds NULL
+
+			!! WE CAN TEST FOR NULL !!!
+
+					if (aDTO.getDocumentId() == null) {
+						// The frontend did not provide a documentTypeId
+					}
+
+
+
+
+	Case 6:  User passes-in NOTHING using an INTEGER OBJECT documentTypeId in the DTO
+	----------------------------------------------------------------------------
+
+		User passes-in this
+		{
+			"documentTypeId" : 0
+		}
+
+		In the DTO, the Integer object holds zero
+
+
+
+
+
+
+
+
+
+
+
+

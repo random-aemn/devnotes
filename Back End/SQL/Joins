@@ -1,0 +1,78 @@
+SQL Joins
+-----------------------
+
+REST Calls
+  80% are read-only queries            / SELECT statements or queries against ElasticSearch
+  20% are insert/update/delete queries / INSERT, UPDATE, DELETE statements
+
+
+
+What is a SQL Join?
+-------------------
+What you do to retrieve date is that is found in 2 or more tables based on a common attribute / column name
+Taking data from 2 tables using a common attribute
+
+It's also a cartesian product
+
+alerts table
+--------------
+
+            alerts
+	+--------------------------------------------
+    |  id  |   case_id   |    desc
+    +------+-------------+-----------------------
+      1000        50            "Alert 1"
+      1001        50            "Alert 2"
+      1002        50            "Alert 3"
+      1100        60            "Alert 4"
+
+cases table
+--------------
+
+            cases
+	+--------------------------------------------
+    |  id  |   desc
+    +------+------------------------------------
+       50       "This is case 50"
+       60       "This is case 60"
+
+
+Select statement using the previous two tables
+------------------------------------------------
+		select a.*, c.*
+        from alert a
+        join cases c
+
+
+Result set from the above query
+----------------------------------------
+            cases
+	+--------------------------------------------------------------------------
+    |  id  |   desc                               alert id       case_id
+    +------+------------------------------------------------------------------
+       50       "This is case 50"                 1000              50
+       50       "This is case 50"                 1001              50
+       50       "This is case 50"                 1002              50
+       50       "This is case 50"                 1100              60
+       60       "This is case 60"                 1000              50
+       60       "This is case 60"                 1001              50
+       60       "This is case 60"                 1002              50
+       60       "This is case 60"                 1100              60
+
+
+Using the same tables but a join, you get the following result set
+------------------------------------------------------------------------
+
+		select a.*, c.*
+        from alert a
+        join cases c  ON (a.case_id = c.id)
+
+
+            cases                                            alerts
+	+--------------------------------------------------------------------------
+    |  id  |   desc                               alert id       case_id
+    +------+------------------------------------------------------------------
+       50       "This is case 50"                 1000              50
+       50       "This is case 50"                 1001              50
+       50       "This is case 50"                 1002              50
+       60       "This is case 60"                 1100              60
