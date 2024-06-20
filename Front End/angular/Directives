@@ -1,0 +1,23 @@
+Directives are instruction for DOM manipulation
+
+
+* Structural directives can change elements within the DOM and are preceded by an asterisk *
+
+Attribute directives only effect the element they sit on
+
+NB: Cannot have two structural directives attached to the same element
+
+They will create, update, or destroy an element in the DOM -> can be data, appearance, or behavior
+
+
+Angular finds directives in the project through the @Directive decorator
+
+There are built-in directives such as *ngIf and *ngFor
+
+*ngif - structural directive for adding or deleting element(s) from the DOM.  They require the asterisk*
+
+Attribute directives only impact the element they are placed on
+
+ngStyle allows us to dynamically update styling
+
+ngClass - allows us to dynamically add or change CSS classes

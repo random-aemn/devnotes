@@ -1,0 +1,26 @@
+Angular offers lifecycle hooks that provide visibility into a component's lifecycle and the ability to act when they occur
+
+Component lifecycle :   Created
+                        Rendered
+                        Children created/rendered
+                        Data-bound properties change
+                        Destruction
+
+ngOnChanges()                  Respond when Angular (re)sets data-bound input properties. The method receives a SimpleChanges object of current and previous property values.
+
+ngOnInit()                    Initialize the directive/component
+
+ngDoCheck()                   Called during every change detection run
+
+ngAfterContentInit()          Respond after Angular projects external content into the component's view.  Called once after the first ngDoCheck()
+
+ngAfterContentChecked()       Respond after Angular checks the content projected into the component. Called after the ngAfterContentInit() and every subsequent ngDoCheck().
+
+ngAfterViewInit()             Respond after Angular initializes the component's views and child views. Called once after the first ngAfterContentChecked().
+
+ngAfterViewChecked()          Respond after Angular checks the component's views and child views. Called after the ngAfterViewInit and every subsequent ngAfterContentChecked().
+
+ngOnDestroy()                 Cleanup just before Angular destroys the directive/component. Unsubscribe Observables and detach event handlers to avoid memory leaks.
+
+
+**ngOnChanges is the only hook that takes an argument

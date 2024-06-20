@@ -1,0 +1,42 @@
+Data binding -> communication between Typescript and HTML Template
+
+The TS file is the data layer containing the business logic while the HTML template controls the appearance
+
+
+String interpolation is: ({{data}})
+
+Property binding is: ([property]) = "data"
+
+
+The HTML template will react to (user) events through the use of event binding
+
+
+Two way data binding is a combination of both
+
+
+HTML                                                    Typescript
+---------------------------------------------------------------------------------
+
+String interpolation
+{{variable.name}}                                       variable_name = 'Fred'  **MUST resolve to a string
+
+Property binding                                           explort class...
+{{variable.name}}                                          variable.name = value
+**variable is substituted for the TS value
+*shown* on the right
+
+---------------------------------------------------------------------------------------------
+                                Data Binding SYNTAX
+
+                                [] binds from a service to a view
+                                () binds from view to source
+                                [()] binds view to source to view (2 way binding)
+
+----------------------------------------------------------------------------------------------
+
+
+ Notes
+ --------
+ $event (HTML is parsed to Typescrip as an argument
+
+ [(ngModel)] trigger on event nested within

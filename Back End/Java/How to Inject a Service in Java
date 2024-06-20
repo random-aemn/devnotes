@@ -6,3 +6,7 @@ Add the @Resource tag to the variable
 //Example code
 @Resource
 private ReportService reportService;
+
+//@Resource injects the class into another class -- using the class in another class
+
+//@Service makes a spring/java class injectable -- registering the class

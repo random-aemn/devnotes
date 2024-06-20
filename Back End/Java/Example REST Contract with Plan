@@ -61,7 +61,7 @@
 			-- Add the logger
 			-- Add a public method that does the work
 
-		c. Create a controller MyDocumentController
+		c. Create a controller MyDoc6umentController
 			-- Add the special annotation
 			-- Add the logger
 			-- Add a public method that is where the REST endpoints STARTS in the backend
