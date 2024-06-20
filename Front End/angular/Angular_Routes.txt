@@ -1,0 +1,79 @@
+ANGULAR ROUTING
+-------------------------
+
+Routing information - localhost:angularapp/users
+
+*import router module so Angular can see and 'find' the routes defined in the app.module
+RouterModule.forRoot(appRoutes)
+
+This routing information should be added in the app.module.ts file
+
+const appRoutes: Routes = [
+	{ path: 'users', component: UsersComponent }  //DO NOT precede the path with the slash
+	},
+	
+	{path: '', component: HomeComponent},
+	
+	{path: 'servers', component: ServersComponent}
+	
+	];
+
+// IN app.component.html
+
+<router-outlet></router-outlet>
+
+This is a directive that relates to the router pieces that were imported.  Angular can now find those routes
+use those endpoints in the browser
+
+Can update the href tags with the endpoints identified in the app.module.ts file
+
+When you add the endpoints to the href tags - the browser will reload the application with every link clicked - the default behavior
+
+routerLink element the click on the element, analyzes what is passed to the directive (router-outlet), looks for an endpoint defined 
+within the app, and navigates to the endpoint without reloading.
+
+routerLink = "['/users']"  // using the array allows one to pass multiple length paths
+
+** ensure you use relative or absolute paths in appropriate places.  Relative paths are, by default, appended to the current router
+
+routerLinkActive directive - directive that links to css classes
+
+routerLinkActive = "active"
+
+[routerLinkActiveOptions] = "{exact: true}" //ensures that the directive linking to css styling is only implemented
+if the exact path is used  
+
+routerLink knows what path it is currently on because it is in the HTML file - it knows the location of elements in the DOM
+router.navigate is DOM unaware because it is TS code
+*these facts impact the use of relative vs. absolute paths
+
+onReload() {
+this.router.navigate(['servers'], {relativeTo: this.route});
+}
+
+The above code will tell angular what the currently active route is.
+Using this active route, Angular should be able to use the relative paths off the currently active path
+
+TO ADD A DYNAMIC ELEMENT TO A URL
+in the const appRoutes array 
+{path: 'users/:id', component: UserComponent }
+
+The colon indicates to Angular that this is a dynamic element in the URL that will be parsed
+
+ngOnInit {
+//get snapshot of the params
+}
+this.route.params.subscribe (params: Params) => {
+		this.user.id = params ['id'];
+		this.user.name = params ['name'];
+	}
+	
+	PICK UP ON LESSON 453  (Routes goes through 471) then Observables
+
+
+
+
+
+
+
+
