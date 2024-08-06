@@ -1,0 +1,133 @@
+                               OBSERVABLES
+------------------------------------------------------------------
+
+Observables are: various data sources, (user input) events, HTTP requests, triggered in code....
+
+observable could emit data programmatically, based on button click, or connected to http request 
+
+Observer - "you" in this case -> you write the code that gets executed
+- handle data
+- handle error
+- handle completion
+
+Used to handle asynchronous tasks
+ - don't want to have to wait for the result because it blocks continued program execution
+ 
+ Observable could emit data, an error, or a completion
+	- at which point 
+	
+** to install RxJS version 6, run the following commands
+npm install --save rxjs@6
+npm install --save rxjs-compat
+**
+
+observables are constructs to which you subscribe to get data updates
+- params is an example
+this.route.params.subscribe
+
+Angular uses observables heavily - usually don't need to create your own, but you can.
+
+Observables are added by using RxJS - not baked into JS or TS
+
+*to create an observable, need to import the "interval" method from RxJS
+- interval will enable you to fire an event at the period that you define (in milliseconds)
+interval(1000).subscribe(count => {console.log(count);
+});
+
+BEWARE OF MEMORY LEAKS
+- clear the subscription to avoid memory leaks
+
+import Subscription from RxJS
+private firstObsSubscription
+
+this.firstObsSubscription = interval(1000).subscribe . . . 
+
+now we're using a subscription and can use NgOnDestroy life cycle hook to ensure that we cancel the subscription when we navigate
+away from the component/page
+
+this.firstObsSubscription.unsubscribe();
+
+Angular provided observables are managed by angular and therefore they automatically take care of unsubscribing
+
+*a more detailed view of creating your own observable
+
+const customIntervalObservable = Observable.create(observer => {
+	setInterval(1000)
+	});
+	
+observable.create - > creates a new observable
+
+Now we can use the argument observer to use the angular methods - observer.next, observer.error, observer.complete, etc.
+
+Can define and subscribe to the observable in ngOnInit
+** put the observable into a variable so you can unsubscribe and not break when you navigate away from the page
+
+Whenever an observable issues an error - it "dies" so you don't need to unsubscribe
+- still unsubscribe when you navigate away from the page, even if it's a non-issues
+
+Can handle the error
+
+completing the observable can be a normal behavior for an observable
+
+HTTP requests will almost always have a completion 
+if(count ===2){
+observer.complete();
+}
+
+Don't need to unsubscribe if your observable did complete
+can add a third method, completing
+completing doesn't have any arguments
+
+When you subscribe and set up various handler functions - it interacts with the observer and emits data, errors, or completion
+and handles those events as you defined it
+
+==================================================================
+                            OPERATORS
+==================================================================
+
+observable emits data, via a subscription, to the observer
+
+Can use built in operators
+data would be transmitted from an observable through an operator, to the subscription, to the observer
+
+subscribe to the result of these operators
+
+import operator type from rxjs/operators - such as map or filter
+customIntervalObservable.pipe(map(data => {
+	return 'Round: ' + (data +1)
+});
+
+===================================================================
+                                SUBJECTS
+===================================================================
+
+Import Subject from RxJS
+
+subject is a special type of observable
+observables are generally passive 
+a subject is less passive because you can call "next" on it from the observable
+
+If something needs to be actively triggered, we can do that from outside the 
+code of Subject unlike an observable where the next() function cannot be called from outside the Observable
+
+A Subject is still an observable and needs to be subscribed to, destroyed, etc.
+
+**don't use subjects instead of event emitters for outputs
+
+Only use subjects to communicate across services
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
