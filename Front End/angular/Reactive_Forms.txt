@@ -1,0 +1,74 @@
+							Improving the Reactive form with Observables
+=========================================================================================================
+
+- replace event emitters with Subjects
+	- instead of calling .emit, call .next (functionally equivalent otherwise)
+	
+Import Subscription from RxJS
+
+ensure that you subscribe and unsubscribe from the variable being used as the subscriber
+
+- Create HTML file in the app.component template file to define the look of the form
+
+in non-angular HTML forms, the following need to be defined (form talking to server)	
+	- action
+	- method
+	
+in Angular, we intercept the form and manage the conversation with the server
+
+How does Angular do this in a Template based approach
+
+import FormsModule from @Angular/forms
+
+Register controls manually
+	- tell angular what controls we want to have
+
+pick the input you want to add as a controls
+	add ngModel to the input field
+	give Angular a name in the same field
+	*in this example, only adding metadata to the fiels holding data - the input fields here*
+	EXAMPLE
+	---------------------
+	<input
+		type = "text"
+		id = "username"
+		class = "form-control"
+		ngModel
+		name = "username">
+---------------------------------
+
+add these for each of the HTML elements that you want to add controls to
+
+
+To make the form submittable
+- create onSubmit method
+- call the method using angular's method (see below) rather than using an OnClick method
+- add the ngSubmit action to the form element (not the submit element/button) to enable form submission
+		- this leverages HTML's built in behavior
+
+The event will be fired whenever the form is submitted/behavior is triggered
+<form (ngSubmit) ="onSubmit()">
+
+Template driven approach	
+	- everything you do, you want to do in the template
+	add #f to add an html bookmark to the form
+	pass the form to the onSubmit method, then you can pass it to the console.log statement
+	#f = "ngForm" - will give me the JS version of the form that Angular uses internally
+	
+	Now that it's an ngForm, the type passed in the TS method is now NgForm rather than HtmlElementRef
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
