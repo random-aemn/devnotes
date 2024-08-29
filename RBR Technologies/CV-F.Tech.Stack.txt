@@ -9,8 +9,8 @@ Typescript
 Tailwind
 Angular 16
 Angular Material
-High Charts
-AG-Grid
+High Chrts
+       AG-Grida
 NPM - bring in frontend javascript libraries
 
 BACKEND
