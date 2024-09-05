@@ -1,0 +1,4 @@
+NOTE:  You can "Nuke your database" on the command line with these commands:
+                 terminal> cd db-migrations
+                 terminal> mvn flyway:clean                  # This tells flyway to erase all tables, rows, views, everything in the schema
+                 terminal> mvn flyway:migrate                # This tells flyway to run through all of flyway sql scripts  [withm

@@ -1,0 +1,10 @@
+	 1. Create a fresh branch from development
+		a. Checkout the latest development branch
+			terminal> git checkout stuff
+			terminal> git branch -D development
+			terminal> git fetch -a
+			terminal> git checkout development
+
+		b. Create a new branch from there
+		        -- Branch name should always start with your initials so everyone can tell whose branch it is
+			terminal> git checkout -b cc/MY_BRANCH_NAME
