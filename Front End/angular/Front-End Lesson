@@ -1,0 +1,2 @@
+- Can only generate Angular components if you are in a workspace that has a package.json file.
+- Functionally means that you should be in the frontend directory of the project

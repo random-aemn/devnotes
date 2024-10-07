@@ -20,7 +20,7 @@ git checkout development
 git pull
 git checkout <your_branch>
 git rebase --rebase-merges development
-git push OR git push --force
+git push --force
 
 -----------------------------------------------
 
