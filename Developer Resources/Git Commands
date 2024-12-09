@@ -23,5 +23,5 @@ git rebase --rebase-merges development
 git push --force
 
 -----------------------------------------------
-* if there are merge conflicts, use the Git UI to resolve them; 'git reabse --continue'; in the
+* if there are merge conflicts, use the Git UI to resolve them; 'git rebase --continue'; in the
 VIM window that pops up type ':wq' to write and quit the changes.  Then continue as normal
