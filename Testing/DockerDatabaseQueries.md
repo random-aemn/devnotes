@@ -2,7 +2,7 @@
 
 In order to query the NI2 database while running the system in Docker, the following steps must be followed
 1. Open Command Line terminal
-2. Run ```kubectl exec -it deploy/ni2-postgres --bash```
+2. Run ```kubectl exec -it deploy/ni2-postgres -- bash```
 3. Commands must be prefixed with ```psql -U foci_user -d ni2_db -c```
    4. Add the sql to perform the query you need
 
