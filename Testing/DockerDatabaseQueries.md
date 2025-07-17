@@ -30,7 +30,7 @@ where sf.id = 5001
 
 - Get assigned CI userid, certificate username, and role title for a specific sf328
 ```
-select sf.assigned_userid, u.cert_username, r.display_name as "Role Title"
+select sf.assigned_userid, u.cert_username, r.display_name as
 from foci.sf328s sf
 join core.users u on sf.assigned_userid = u.id
 join core.roles r on u.id = r.id
