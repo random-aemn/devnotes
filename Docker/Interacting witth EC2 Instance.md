@@ -27,7 +27,7 @@ Run this command to create a new container
 `-e SOPS_KMS_ARN=arn:aws...` sets the environment variable SOPS_KMS_ARN and points it to the AWS KMS key for SOPS (Secrets Operations) to enable decryption of configuration files.
 
 `-v /Users/christophercolclough/Projects/ilr:/ilr` creates a Volume mount. The colon is the delimiter between the left and right sides
-The Left side: your local path on macOS
+The Left side: The local copy of the repo inside the EC2 instance
 Right side: inside the container
 
 This makes your local ilr project accessible inside the container.
@@ -64,3 +64,33 @@ This is the AWS ECR image that is being pulled and run.
 
 `docker exec -it chris-es bash` execs into the named container (chris-es) with an interactive bash terminal
 
+### Recommendation
+Have one terminal that is inside the container and another that is on the host.  Code changes should be implemented on the host 
+and use the container to run terragrunt and look at output.
+
+`ssmI` gets you inside the host
+`docker exec -it <container-name> bash` gets you inside the container
+
+- Will need to clone the ilr repo into the EC2 instance
+  - create/edit the .gitconfig file and add the Personal Access Token
+      `[url "https://ghp_<token_here>@github.boozallencsn.com/"]
+        insteadOf = git@github.boozallencsn.com:
+        [url "https://ghp_<token_here>@github.boozallencsn.com/"]
+        insteadOf = ssh://git@github.boozallencsn.com/
+        [url "https://ghp_<token_here>@github.com/"]
+        insteadOf = ssh://git@github.com/
+        [url "https://ghp_<token_here>@github.com/"]
+        insteadOf = git@github.com:
+        [user]
+        email = Your_Email_Address@domain.com
+        name = Your Name
+        `
+  - Creating/editing the .gitconfig file may need to be done with VI
+    - `vi .gitconfig`
+- Mount the repo into the container
+
+Volume is just the connector between two locations - in this case between the "local" on the EC2 instance and the "remote" on the Docker container
+
+
+
+### Terragrunt Commands
